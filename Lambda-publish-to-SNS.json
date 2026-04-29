@@ -1,0 +1,15 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowLambdaPublishTopicsToSNS",
+      "Effect": "Allow",
+      "Action": [
+        "sns:Publish",
+        "sns:GetTopicAttributes",
+        "sns:ListTopics"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
