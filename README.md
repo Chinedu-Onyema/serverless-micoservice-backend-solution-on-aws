@@ -20,7 +20,18 @@ This monolithic design led to severe single-point-of-failure vulnerabilities, hi
 4) Optimize Operational Costs: Transition to a pay-per-use model to align with variable workload traffic.
 
 
-### PDF GUIDE:[DESIGNING A SERVERLESS MICROSERVICE WEB APPLICATION BACKEND ON AWS.pdf](https://github.com/user-attachments/files/32195467/DESIGNING.A.SERVERLESS.MICROSERVICE.WEB.APPLICATION.BACKEND.ON.AWS.pdf)
+## ARCHITECTURAL DECISION RECORD (ADR)
+
+1) Compute (AWS Lambda vs. EC2 / ECS / EKS): AWS Lambda provides an event-driven serverless environment without server management overhead or idle infrastructure costs.
+
+2) Database (DynamoDB vs. Aurora Serverless): DynamoDB delivers single-digit millisecond key-value lookups (by orderID) without complex relational join requirements
+
+3) Decoupling (Amazon SQS vs. Direct Invocation): SQS acts as a buffer layer to absorb sudden traffic spikes, eliminate API timeouts, and guarantee message persistence.
+
+4) Fan-Out Messaging (Amazon SNS vs. EventBridge): SNS supplies a lightweight, cost-effective publish/subscribe model to broadcast new orders to all downstream services in parallel.
+
+
+### PDF GUIDE: [DESIGN A SERVERLESS MICROSERVICE WEB APPLICATION BACKEND ON AWS.pdf](https://github.com/user-attachments/files/32195467/DESIGNING.A.SERVERLESS.MICROSERVICE.WEB.APPLICATION.BACKEND.ON.AWS.pdf)
 
 ### WATCH VIDEO WALKTHROUGH HERE: https://youtu.be/eZIWdjVleBQ
 
